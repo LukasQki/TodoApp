@@ -17,7 +17,7 @@ describe('POST /todos', () => {
             .send({text})
             .expect(200)
             .expect((res) => {
-                // expect(res.body.text).toBe(text);
+                expect(res.body.text).toBe(text);
             })
             .end((err, res) => {
                 if (err) {
@@ -26,7 +26,7 @@ describe('POST /todos', () => {
 
                 Todo.find().then((todos) => {
                     expect(todos.length).toBe(1);
-                    // expect(todos[0].text).toBe(text);
+                    expect(todos[0].text).toBe(text);
                     done();
                 }).catch((e) => done(e));
             });
